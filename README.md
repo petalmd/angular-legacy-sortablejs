@@ -1,9 +1,13 @@
-# THIS PROJECT NEEDS A MAINTAINER.
+# angular-legacy-sortable
+Angular 1.x wrapper for [SortableJS](https://github.com/RubaXa/Sortable). 
 
-angular-legacy-sortable
------------------------
+### Usage
 
-Demo: http://jsbin.com/naduvo/1/edit?html,js,output
+Add **[ng-sortable]** directive to the parent container of a list of sortable items displayed using **ng-repeat**. The directive will create a SortableJS instance for allowing the child items to be moved inside the container.
+
+When an item is moved to a new position, the original array provided (ng-repeat source) will be modified and reordered according to the new item position.
+
+**Important:** if the ng-repeat source is dynamic or is a reference to a filtered list (using either $filter or an ES6 filter function), it's recommended to use the **onUpdate** option callback to manually reorder your original array. See below for more information on options usage.
 
 ```html
 <div ng-app="myApp" ng-controller="demo">
@@ -37,4 +41,8 @@ angular.module('myApp', ['ng-sortable'])
 		};
 	}]);
 ```
+
+### Options
+
+A hash of options can be provided to **[ng-sortable]** attribute. Available options are detailed in [SortableJS documentation](https://github.com/RubaXa/Sortable#options)
 
